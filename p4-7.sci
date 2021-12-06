@@ -1,0 +1,13 @@
+n = 8;
+m = n - 1;
+dr = 3 * %pi / 2;
+R = 100;
+x0 = ( (R + sqrt(R^2 - 1))^(1/m) + (R - sqrt(R^2 -1))^(1/m) ) / 2;
+theta = 0:0.001:2*%pi;
+x = x0 * cos(dr*sin(theta)/2);
+t7 = 64*x.^7 - 112*x.^5 + 56*x.^3 - 7*x;
+t7abs = abs(t7);
+o = 180 * theta / %pi;
+b = [o' t7abs'];
+t7norm = t7abs / max(t7abs);
+bnorm = [o' t7norm'];
